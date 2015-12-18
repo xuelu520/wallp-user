@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <!-- Site Properities -->
-    <title>Fixed Menu Example - Semantic</title>
+    <title>哇扑-看你所看，想你所想</title>
     <link href="//cdn.bootcss.com/semantic-ui/2.1.6/components/reset.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/semantic-ui/2.1.6/components/site.min.css" rel="stylesheet">
 
@@ -32,6 +32,8 @@
     <link href="//cdn.bootcss.com/semantic-ui/2.1.6/components/dropdown.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/semantic-ui/2.1.6/components/icon.min.css" rel="stylesheet">
     <link href="/public/css/public.css" rel="stylesheet">
+
+    <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="ui fixed inverted menu">
