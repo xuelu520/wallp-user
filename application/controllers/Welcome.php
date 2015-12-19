@@ -27,8 +27,8 @@ class Welcome extends CI_Controller {
 			$res = $client->request('GET',API_URL."/api/wg_one",['query'=>['wg_id'=>1]]);
 		}catch (\GuzzleHttp\Exception\RequestException $e){
 		}
+
 		$juwuba = json_decode((string)$res->getBody(),TRUE);
-		var_dump($juwuba['data']);
-		$this->load->view('/welcome/index');
+		$this->load->view('/welcome/index',['juwuba'=>$juwuba['data']['items']]);
 	}
 }

@@ -18,10 +18,14 @@
     <title>哇扑-看你所看，想你所想</title>
 
     <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="/public/owl-carousel/owl.theme.css">
     <link href="/public/css/public.css" rel="stylesheet">
 
     <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/public/owl-carousel/owl.carousel.js"></script>
+
 </head>
 <body>
 <nav class="navbar navbar-fixed-top navbar-inverse">

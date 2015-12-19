@@ -2,24 +2,32 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 include APPPATH."views/common/top.php";
 ?>
-<div id="wg-juwuba" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators" id="juwuba-indicators">
-        <li data-target="#wg-juwuba" data-slide-to="0" class="active"></li>
-        <li data-target="#wg-juwuba" data-slide-to="1"></li>
-        <li data-target="#wg-juwuba" data-slide-to="2"></li>
-    </ol>
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox" id="list-juwuba">
-        <div class="item">
-            <img src="..." alt="...">
-        </div>
-        <div class="item">
-            <img src="..." alt="...">
-        </div>
-        <div class="item">
-            <img src="..." alt="...">
+<style>
+    .slidesjs-stop {
+        display:none;
+    }
+</style>
+<div class="row">
+    <div class="container">
+        <!-- Wrapper for slides -->
+        <div id="owl-example" class="owl-carousel">
+            <?php foreach($juwuba as $item):?>
+                <div style="">
+                    <img src="<?php echo UPYUN_URL.$item['url'];?>" style="width: 100%;">
+                </div>
+            <?php endforeach;?>
         </div>
     </div>
 </div>
+<script>
+    $(function(){
+        $("#owl-example").owlCarousel({
+            autoPlay:true,
+            navigation : false, // Show next and prev buttons
+            slideSpeed : 300,
+            paginationSpeed : 400,
+            singleItem:true
+        });
+    });
+</script>
 <?php include APPPATH."views/common/footer.php";?>
