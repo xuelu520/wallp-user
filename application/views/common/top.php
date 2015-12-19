@@ -6,7 +6,6 @@
  * Time: 23:14
  */
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,50 +16,30 @@
 
     <!-- Site Properities -->
     <title>哇扑-看你所看，想你所想</title>
-    <link href="//cdn.bootcss.com/semantic-ui/2.1.6/components/reset.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/semantic-ui/2.1.6/components/site.min.css" rel="stylesheet">
 
-    <link href="//cdn.bootcss.com/semantic-ui/2.1.6/components/container.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/semantic-ui/2.1.6/components/grid.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/semantic-ui/2.1.6/components/header.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/semantic-ui/2.1.6/components/image.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/semantic-ui/2.1.6/components/menu.min.css" rel="stylesheet">
-
-    <link href="//cdn.bootcss.com/semantic-ui/2.1.6/components/divider.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/semantic-ui/2.1.6/components/list.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/semantic-ui/2.1.6/components/segment.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/semantic-ui/2.1.6/components/dropdown.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/semantic-ui/2.1.6/components/icon.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="/public/css/public.css" rel="stylesheet">
 
-    <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="ui fixed inverted menu">
-    <div class="ui container">
-        <a href="#" class="header item">
-            <h1>哇扑</h1>
-        </a>
-        <a href="#" class="item">Home</a>
-        <div class="ui simple dropdown item">
-            Dropdown <i class="dropdown icon"></i>
-            <div class="menu">
-                <a class="item" href="#">Link Item</a>
-                <a class="item" href="#">Link Item</a>
-                <div class="divider"></div>
-                <div class="header">Header Item</div>
-                <div class="item">
-                    <i class="dropdown icon"></i>
-                    Sub Menu
-                    <div class="menu">
-                        <a class="item" href="#">Link Item</a>
-                        <a class="item" href="#">Link Item</a>
-                    </div>
-                </div>
-                <a class="item" href="#">Link Item</a>
-            </div>
+<nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><b>WallP</b></a>
         </div>
-    </div>
-</div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/" title="主页">
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                    </a>
+                </li>
+            </ul>
+        </div><!-- /.nav-collapse -->
+    </div><!-- /.container -->
+</nav>
 
-<div class="ui main text container">
+</body>
+</html>
