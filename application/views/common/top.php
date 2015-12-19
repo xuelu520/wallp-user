@@ -40,6 +40,3 @@
         </div><!-- /.nav-collapse -->
     </div><!-- /.container -->
 </nav>
-
-</body>
-</html>

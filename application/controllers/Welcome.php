@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+use GuzzleHttp\Client;
 
 class Welcome extends CI_Controller {
 
@@ -20,6 +21,13 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		//获取巨无霸数据
+		$client = new GuzzleHttp\Client(['base_uri' => 'API_URL']);
+		try{
+			$res = $client->request('GET',API_URL."/api/wg_one",['query'=>['wg_id'=>1]]);
+		}catch (\GuzzleHttp\Exception\RequestException $e){
+		}
+		var_dump($res->getHeaders());
 		$this->load->view('/welcome/index');
 	}
 }

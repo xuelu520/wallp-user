@@ -83,3 +83,14 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+
+define("SUCCESS_STATUS",'success');
+define("GET_SUCCESS_MSG",'获取成功！');
+define("GET_FAIL_MSG",'获取失败！');
+
+define("POST_SUCCESS_MSG",'提交成功！');
+define("POST_FAIL_MSG",'提交失败！');
+
+
+define("FAIL_STATUS",'fail');
