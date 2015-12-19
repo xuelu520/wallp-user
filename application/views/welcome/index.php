@@ -2,11 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 include APPPATH."views/common/top.php";
 ?>
-<style>
-    .slidesjs-stop {
-        display:none;
-    }
-</style>
 <div class="row">
     <div class="container">
         <!-- Wrapper for slides -->
