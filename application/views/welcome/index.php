@@ -14,6 +14,46 @@ include APPPATH."views/common/top.php";
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="container">
+        <div class="panel">
+            <div class="panel-body">
+                <div class="fl"><h3>次级分类1</h3></div>
+                <div class="fr" style="margin-top: 10px;"><a href="javascript:void(0);">更多</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="row">
+        <div class="container">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="fl"><h3>次级分类2</h3></div>
+                    <div class="fr" style="margin-top: 10px;"><a href="javascript:void(0);">更多</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="fl"><h3>次级分类3</h3></div>
+                    <div class="fr" style="margin-top: 10px;"><a href="javascript:void(0);">更多</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="fl"><h3>次级分类4</h3></div>
+                    <div class="fr" style="margin-top: 10px;"><a href="javascript:void(0);">更多</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
 <script>
     $(function(){
         $("#owl-example").owlCarousel({
