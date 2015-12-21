@@ -41,6 +41,10 @@
                     </a>
                 </li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">QQ登录</a></li>
+                <li><a href="#">微信登录</a></li>
+            </ul>
         </div><!-- /.nav-collapse -->
     </div><!-- /.container -->
 </nav>
