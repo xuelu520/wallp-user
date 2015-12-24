@@ -26,6 +26,7 @@ class Welcome extends CI_Controller {
 		try{
 			$res = $client->request('GET',API_URL."/api/wg_one",['query'=>['wg_id'=>1]]);
 		}catch (\GuzzleHttp\Exception\RequestException $e){
+			var_dump($e->getMessage());
 		}
 
 		$juwuba = json_decode((string)$res->getBody(),TRUE);
