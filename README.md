@@ -9,7 +9,21 @@
 * php框架采用 codeigniter3,第三方类库采用conposer管理。  
  
 ##API接口
->**待定**  
+> * admin.xxx.cn/api/wg_one?wg_id=X x为套图ID  
+
+返回值:  
+
+```json
+{
+    name:'巨无霸'，
+    items:[
+        {url:'xxx.xxx.xxx/lkjlkj.jpg!!'},
+        {url:'xxx.xxx.xxx/lkjlkj.jpg!!'},
+        {url:'xxx.xxx.xxx/lkjlkj.jpg!!'},
+        ...
+    ]
+}
+```
 
 ##依赖库
 * php5-curl
