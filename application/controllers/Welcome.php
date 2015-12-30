@@ -25,11 +25,12 @@ class Welcome extends CI_Controller {
 		$client = new GuzzleHttp\Client(['base_uri' => 'API_URL']);
 		try{
 			$res = $client->request('GET',API_URL."/api/wg_one",['query'=>['wg_id'=>1]]);
+			$juwuba = json_decode((string)$res->getBody(),TRUE);
+			$juwuba = $juwuba['data']['items'];
 		}catch (\GuzzleHttp\Exception\RequestException $e){
 			var_dump($e->getMessage());
+			$juwuba = [];
 		}
-
-		$juwuba = json_decode((string)$res->getBody(),TRUE);
-		$this->load->view('/welcome/index',['juwuba'=>$juwuba['data']['items']]);
+		$this->load->view('/welcome/index',['juwuba'=>$juwuba]);
 	}
 }
