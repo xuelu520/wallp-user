@@ -16,6 +16,7 @@ class User_Model extends CI_Model {
         parent::__construct();
         //加载数据库
         $this->load->database('default');
+        // 加载CURL组件
         $this->client = new Client();
     }
 }
