@@ -8,7 +8,7 @@ include APPPATH."views/common/top.php";
         <div id="owl-example" class="owl-carousel">
             <?php foreach($juwuba as $item):?>
                 <div style="">
-                    <img src="<?php echo UPYUN_URL.$item['url'];?>" style="width: 100%;">
+                    <img src="<?php echo UPYUN_URL.$item['url'];?>" style="height: 750px;">
                 </div>
             <?php endforeach;?>
         </div>
