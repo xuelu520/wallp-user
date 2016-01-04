@@ -72,6 +72,7 @@ include APPPATH."views/common/top.php";
     </div>
 <script>
     $(function(){
+        //轮播组件
         $("#owl-example").owlCarousel({
             autoPlay:true,
             navigation : false, // Show next and prev buttons
