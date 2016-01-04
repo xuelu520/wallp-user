@@ -6,7 +6,7 @@
 ##环境配置
 * 这份代码是用户侧的代码
 * php5.5 + mysql + redis  
-* php框架采用 codeigniter3,第三方类库采用conposer管理。  
+* php框架采用 codeigniter3,第三方类库采用composer管理。  
  
 ##API接口
 > * admin.xxx.cn/api/wg_one?wg_id=X x为套图ID  
