@@ -44,7 +44,6 @@ class Login extends CI_Controller {
 		//查询本地数据库是否有对应的用户，没有则去获取QQ资料，添加本地用户
 		$this->load->model('User_model','u_model');
 		$wp_user = $this->u_model->open_user($openid,USER_QQ);
-		var_dump($wp_user);
 		//用户不存在
 		if(!$wp_user) {
 			//获取QQ用户资料
@@ -55,14 +54,13 @@ class Login extends CI_Controller {
 			if($wp_user_id) {
 				$wp_user = json_decode(json_encode(['user_id'=>$wp_user_id,'user_name'=>$user_name]));
 			}else{
-				//		echo "<h1>登录失败</h1>";exit;
+				echo "<h1>登录失败</h1>";exit;
 			}
 		}
-		var_dump($wp_user);
 		//写入登录SESSION
 		$_SESSION['user:id'] = $wp_user->user_id;
 		$_SESSION['user:name'] = $wp_user->user_name;
-//		echo "<h1>登录完成，正在关闭...</h1><script>setTimeout(function(){window.close();},1000)</script>";
+		echo "<h1>登录完成，正在关闭...</h1><script>setTimeout(function(){window.close();},1500)</script>";
 		exit;
 	}
 
