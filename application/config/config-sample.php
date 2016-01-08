@@ -516,3 +516,11 @@ define("UPYUN_PWD",      "密码");
 
 define("UPYUN_URL","空间域名"); //空间域名
 define("THUMB","!pp"); //缩略图后缀
+
+define('API_URL', 'http://wallp.cn'); //API地址
+
+//三方登录=====================
+define("QQ_APPID",'');//QQ APPID
+define("QQ_CALLBACK_URL",""); //QQ登录回调地址
+
+////三方登录=====================

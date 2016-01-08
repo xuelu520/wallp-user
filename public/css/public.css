@@ -21,6 +21,8 @@
     margin-left: -40px;
 }
 
-.login-button {
+.btn-qq {
     margin-top: 13px;
+    width: 76px;
+    background: url("/public/images/btn-qq.png") no-repeat;
 }

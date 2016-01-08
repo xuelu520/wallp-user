@@ -24,18 +24,6 @@
     <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="/public/owl-carousel/owl.carousel.js"></script>
-    <!--QQ登录组件-->
-    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js"
-            data-appid="101269058"
-            data-redirecturi="http://www.housepig.cn" charset="utf-8"></script>
-    <script type="text/javascript">
-        $(function() {
-            //初始化QQ登录
-            QC.Login({
-                btnId: "qqLoginBtn"
-            });
-        });
-    </script>
 </head>
 <body>
 <nav class="navbar navbar-fixed-top navbar-inverse">
@@ -52,7 +40,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right ">
-                <li class="login-button"><span id="qqLoginBtn"></span></li>
+                <li><a href="/login/index?type=qq" class="btn-qq"></a></li>
                 <li><a href="#">微信登录</a></li>
             </ul>
         </div><!-- /.nav-collapse -->
