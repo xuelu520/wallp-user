@@ -50,8 +50,13 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right ">
-                <li><a href="javascript:void(0);" class="btn-qq"></a></li>
-                <li><a href="#">微信登录</a></li>
+                <?php if($_SESSION['user:id']): ?>
+                    <li>你好：<a href="javascript:void(0);" class=""><?=$_SESSION['user:name']?></a></li>
+                    <li><a href="/login/logout">登出</a></li>
+                <?php else: ?>
+                    <li><a href="javascript:void(0);" class="btn-qq"></a></li>
+                    <li><a href="#">微信登录</a></li>
+                <?php endif;?>
             </ul>
         </div><!-- /.nav-collapse -->
     </div><!-- /.container -->
