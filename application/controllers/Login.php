@@ -39,12 +39,11 @@ class Login extends CI_Controller {
 		$this->qq_callback();
 		$this->qq_get_openid();
 
-		$_SESSION["qq:access_token"];
-		$_SESSION["qq:openid"];
+		$openid = $_SESSION["qq:openid"];
 
 		//查询本地数据库是否有对应的用户，没有则去获取QQ资料，添加本地用户
 		$this->load->model('User_model','u_model');
-		$user = $this->u_model->open_user($_SESSION["qq:openid"],USER_QQ);
+		$user = $this->u_model->open_user($openid,USER_QQ);
 		//用户不存在
 		if(!$user) {
 			//获取QQ用户资料
@@ -53,7 +52,7 @@ class Login extends CI_Controller {
 			$user = json_decode($user);
 			$user_name = $user->nickname;
 			//添加用户
-			$wp_user = $this->u_model->save();
+			$wp_user = $this->u_model->save($openid,$user,USER_QQ);
 			var_dump($wp_user);
 		}
 		//写入登录SESSION
