@@ -41,18 +41,21 @@ class User_Model extends CI_Model {
         $this->db->trans_start();
         $user = ['username'=>$username,
             'create_time'=>time()];
-        $user = $this->db->insert(self::TABLE_USERS,$user);
+        $user_insert = $this->db->insert(self::TABLE_USERS,$user);
+        $user_id = "";
+        $open_insert = false;
+        if($user_insert) {
+            $user_id = $this->db->insert_id();
+            $open = ['user_id'=>$user_id, 'openid'=>$openid, 'type'=>$type];
+            $open_insert = $this->db->insert(self::TABLE_OPEN,$open);
+        }
 
-
-        if ($this->db->trans_status() === FALSE)
-        {
+        if ($user_insert && $open_insert) {
+            $this->db->trans_commit();
+            return $user_id;
+        } else {
             $this->db->trans_rollback();
             return false;
-        }
-        else
-        {
-            $this->db->trans_commit();
-            return $user;
         }
     }
 }
