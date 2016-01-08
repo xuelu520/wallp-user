@@ -129,8 +129,8 @@ class Login extends CI_Controller {
 
 	private function qq_get_detail() {
 		$url = "https://graph.qq.com/user/get_user_info?oauth_consumer_key=" . QQ_APPID . "&".
-			"access_token=&". $_SESSION["qq:access_token"] .
-			"openid=" . $_SESSION["qq:openid"] . "&format=json";
+			"access_token=". $_SESSION["qq:access_token"] .
+			"&openid=" . $_SESSION["qq:openid"] . "&format=json";
 
 		$response = file_get_contents($url);
 		return $response;
