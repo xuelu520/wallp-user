@@ -105,9 +105,9 @@ class Login extends CI_Controller {
 			echo "<h3>msg  :</h3>" . $user->error_description;
 			exit;
 		}
-
+		echo "<br>";
 		//debug
-		echo("Hello " . $user->openid);
+		var_dump($user);
 
 		//set openid to session
 		$_SESSION["openid"] = $user->openid;
