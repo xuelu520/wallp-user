@@ -35,7 +35,7 @@ class Login extends CI_Controller {
 	 * QQ登录回调地址
 	 */
 	public function qq() {
-		echo "<h1>这是QQ登录的回调页面</h1>";
+		echo "<h1>QQ登录验证中...</h1>";
 		$this->qq_callback();
 		$this->qq_get_openid();
 
@@ -60,7 +60,7 @@ class Login extends CI_Controller {
 		//写入登录SESSION
 		$_SESSION['user:id'] = $wp_user->user_id;
 		$_SESSION['user:name'] = $wp_user->user_name;
-		echo "<h1>登录完成，正在关闭...</h1><script>setTimeout(function(){window.close();},1500)</script>";
+		echo "<h1>登录完成^_^，正在关闭...</h1><script>setTimeout(function(){window.close();},1500)</script>";
 		exit;
 	}
 
