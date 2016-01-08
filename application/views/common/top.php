@@ -25,6 +25,15 @@
     <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="/public/owl-carousel/owl.carousel.js"></script>
+    <script>
+        $(function() {
+            $('.btn-qq').bind('click', function() {
+                window.open('/login/index?type=qq',
+                    "哇扑-QQ登录",
+                    "width=450,height=320,menubar=0,scrollbars=1, resizable=1,status=1,titlebar=0,toolbar=0,location=1");
+            });
+        });
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-fixed-top navbar-inverse">
@@ -41,7 +50,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right ">
-                <li><a href="/login/index?type=qq" class="btn-qq"></a></li>
+                <li><a href="javascript:void(0);" class="btn-qq"></a></li>
                 <li><a href="#">微信登录</a></li>
             </ul>
         </div><!-- /.nav-collapse -->
