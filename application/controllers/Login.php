@@ -21,7 +21,9 @@ class Login extends CI_Controller {
 		}
 	}
 
-	//用户点击qq登录按钮调用此函数
+	/**
+	 * 用户点击qq登录按钮调用此函数
+	 */
 	private function qq_login() {
 		$_SESSION['login:qq:state'] = md5(uniqid(rand(), TRUE)); //CSRF protection
 		$login_url = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id="
@@ -64,6 +66,9 @@ class Login extends CI_Controller {
 		exit;
 	}
 
+	/**
+	 * qq 回调获取 access_token
+	 */
 	private function qq_callback()
 	{
 		//debug
@@ -108,6 +113,9 @@ class Login extends CI_Controller {
 		}
 	}
 
+	/**
+	 * qq 回调获取 openid
+	 */
 	private function qq_get_openid()
 	{
 		$graph_url = "https://graph.qq.com/oauth2.0/me?access_token="
@@ -136,6 +144,10 @@ class Login extends CI_Controller {
 		$_SESSION["qq:openid"] = $user->openid;
 	}
 
+	/**
+	 * qq 回调 获取用户信息
+	 * @return mixed
+	 */
 	private function qq_get_detail() {
 		$url = "https://graph.qq.com/user/get_user_info?oauth_consumer_key=" . QQ_APPID . "&".
 			"access_token=". $_SESSION["qq:access_token"] .
@@ -154,5 +166,13 @@ class Login extends CI_Controller {
 		// "is_yellow_vip": "0", "vip": "0", "yellow_vip_level": "0",
 		// "level": "0", "is_yellow_year_vip": "0" } "
 		return json_decode($response);
+	}
+
+	/**
+	 * 登出方法
+	 */
+	public function logout() {
+		session_destroy();
+		header('Location:/');exit;
 	}
 }
