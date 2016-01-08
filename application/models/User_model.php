@@ -28,10 +28,10 @@ class User_Model extends CI_Model {
      * @return mixed
      */
     function open_user($openid,$type) {
-        $sql = "SELECT user.id user_id,user.user_name user_name
+        $sql = "SELECT user.id user_id,user.username user_name
                 FROM " . self::TABLE_OPEN ." as open
                 LEFT JOIN ". self::TABLE_USERS . " as user on user.id = open.user_id
-                WHERE open.openid = ".$openid . " AND open.type = ".$type;
+                WHERE open.openid = '".$openid . "' AND open.type = ".$type;
         return $this->db->query($sql)->result();
     }
 }
