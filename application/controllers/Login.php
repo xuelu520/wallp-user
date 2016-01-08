@@ -81,7 +81,7 @@ class Login extends CI_Controller {
 		}
 		else
 		{
-			echo("The state does not match. You may be a victim of CSRF.");
+			echo("<h1>回调验证失败！</h1>");
 		}
 	}
 
