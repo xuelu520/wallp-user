@@ -32,7 +32,7 @@ class User_Model extends CI_Model {
                 FROM " . self::TABLE_OPEN ." as open
                 LEFT JOIN ". self::TABLE_USERS . " as user on user.id = open.user_id
                 WHERE open.openid = '".$openid . "' AND open.type = ".$type;
-        return $this->db->query($sql)->result();
+        return $this->db->query($sql)->row();
     }
 
     function save($openid,$username,$type) {
