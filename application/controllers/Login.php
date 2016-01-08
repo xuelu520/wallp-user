@@ -52,7 +52,7 @@ class Login extends CI_Controller {
 			$user = json_decode($user);
 			$user_name = $user->nickname;
 			//添加用户
-			$wp_user = $this->u_model->save($openid,$user,USER_QQ);
+			$wp_user = $this->u_model->save($openid,$user_name,USER_QQ);
 			var_dump($wp_user);
 		}
 		//写入登录SESSION
