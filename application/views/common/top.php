@@ -50,7 +50,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right ">
-                <?php if($_SESSION['user:id']): ?>
+                <?php if(isset($_SESSION['user:id'])): ?>
                     <li><a href="javascript:void(0);" class="">你好：<?=$_SESSION['user:name']?></a></li>
                     <li><a href="/login/logout">登出</a></li>
                 <?php else: ?>
