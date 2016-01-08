@@ -43,19 +43,22 @@ class Login extends CI_Controller {
 
 		//查询本地数据库是否有对应的用户，没有则去获取QQ资料，添加本地用户
 		$this->load->model('User_model','u_model');
-		$user = $this->u_model->open_user($openid,USER_QQ);
+		$wp_user = $this->u_model->open_user($openid,USER_QQ);
 		//用户不存在
-		if(!$user) {
+		if(!$wp_user) {
 			//获取QQ用户资料
-			$user = $this->qq_get_detail();
-			var_dump($user);
-			$user = json_decode($user);
-			$user_name = $user->nickname;
+			$qq_user = $this->qq_get_detail();
+			$user_name = $qq_user->nickname;
 			//添加用户
-			$wp_user = $this->u_model->save($openid,$user_name,USER_QQ);
-			var_dump($wp_user);
+			$wp_user_id = $this->u_model->save($openid,$user_name,USER_QQ);
+			if($wp_user_id) {
+				$wp_user = ['user_id'=>$wp_user_id,'user_name'=>$user_name];
+			}
 		}
 		//写入登录SESSION
+		$_SESSION['user:id'] = $wp_user['user_id'];
+		$_SESSION['user:name'] = $wp_user['user_name'];
+		echo "<script>window.close();</script>";
 		exit;
 	}
 
@@ -91,7 +94,7 @@ class Login extends CI_Controller {
 			parse_str($response, $params);
 
 			//debug
-			print_r($params);
+//			print_r($params);
 
 			//set access token to session
 			$_SESSION["qq:access_token"] = $params["access_token"];
@@ -123,9 +126,9 @@ class Login extends CI_Controller {
 			echo "<h3>msg  :</h3>" . $user->error_description;
 			exit;
 		}
-		echo "<br>";
+//		echo "<br>";
 		//debug
-		var_dump($user);
+//		var_dump($user);
 
 		//set openid to session
 		$_SESSION["qq:openid"] = $user->openid;
@@ -148,6 +151,6 @@ class Login extends CI_Controller {
 		// "figureurl_qq_2": "http:\/\/q.qlogo.cn\/qqapp\/101269058\/0A2FCA252EAD4567AF7831D25DBC8669\/100",
 		// "is_yellow_vip": "0", "vip": "0", "yellow_vip_level": "0",
 		// "level": "0", "is_yellow_year_vip": "0" } "
-		return $response;
+		return json_decode($response);
 	}
 }
