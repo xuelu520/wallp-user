@@ -38,7 +38,7 @@ class User_Model extends CI_Model {
     function save($openid,$username,$type) {
         //构造数据
         //开启事务
-        $this->db->trans_start();
+        $this->db->trans_begin();
         $user = ['username'=>$username,
             'create_time'=>time()];
         $user_insert = $this->db->insert(self::TABLE_USERS,$user);
