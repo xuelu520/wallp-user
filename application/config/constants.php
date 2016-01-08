@@ -94,3 +94,7 @@ define("POST_FAIL_MSG",'提交失败！');
 
 
 define("FAIL_STATUS",'fail');
+
+//==================三方登录用常量===================
+define('USER_QQ','1'); //QQ用户
+define('USER_WECHAT','1'); //微信用户

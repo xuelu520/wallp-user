@@ -37,7 +37,21 @@ class Login extends CI_Controller {
 	public function qq() {
 		echo "<h1>这是QQ登录的回调页面</h1>";
 		$this->qq_callback();
-		$this->get_openid();
+		$this->qq_get_openid();
+
+		$_SESSION["qq:access_token"];
+		$_SESSION["qq:openid"];
+
+		//查询本地数据库是否有对应的用户，没有则去获取QQ资料，添加本地用户
+		$this->load->model('User_model','u_model');
+		$user = $this->u_model->open_user($_SESSION["qq:openid"],USER_QQ);
+		//用户不存在
+		if(!$user) {
+			//获取QQ用户资料
+			$user = $this->qq_get_detail();
+			var_dump($user);
+		}
+		//写入登录SESSION
 		exit;
 	}
 
@@ -76,7 +90,7 @@ class Login extends CI_Controller {
 			print_r($params);
 
 			//set access token to session
-			$_SESSION["access_token"] = $params["access_token"];
+			$_SESSION["qq:access_token"] = $params["access_token"];
 
 		}
 		else
@@ -85,7 +99,7 @@ class Login extends CI_Controller {
 		}
 	}
 
-	private function get_openid()
+	private function qq_get_openid()
 	{
 		$graph_url = "https://graph.qq.com/oauth2.0/me?access_token="
 			. $_SESSION['access_token'];
@@ -110,6 +124,16 @@ class Login extends CI_Controller {
 		var_dump($user);
 
 		//set openid to session
-		$_SESSION["openid"] = $user->openid;
+		$_SESSION["qq:openid"] = $user->openid;
+	}
+
+	private function qq_get_detail() {
+		$url = "https://graph.qq.com/user/get_user_info?oauth_consumer_key=" . QQ_APPID . "&".
+			"access_token=&". $_SESSION["qq:access_token"] .
+			"openid=" . $_SESSION["qq:openid"] . "&format=json";
+
+		$client = new GuzzleHttp\Client();
+		$resp = $client->get($url);
+		return json_decode((string)$resp->getBody());
 	}
 }

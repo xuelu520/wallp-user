@@ -7,8 +7,8 @@
  */
 use GuzzleHttp\Client;
 class User_Model extends CI_Model {
-    const TABLE_WALLS = "users";
-
+    const TABLE_USERS = "users";
+    const TABLE_OPEN = "open_login";
     private $client;
     public function __construct()
     {
@@ -18,5 +18,20 @@ class User_Model extends CI_Model {
         $this->load->database('default');
         // 加载CURL组件
         $this->client = new Client();
+    }
+
+
+    /**
+     * 查询三方用户
+     * @param $openid
+     * @param $type
+     * @return mixed
+     */
+    function open_user($openid,$type) {
+        $sql = "SELECT user.id user_id,user.user_name user_name
+                FROM " . self::TABLE_OPEN ." as open
+                LEFT JOIN ". self::TABLE_USERS . "as user on user.id = open.user_id
+                WHERE open.openid = ".$openid . " AND open.type = ".$type;
+        return $this->db->query($sql)->result();
     }
 }
