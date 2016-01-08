@@ -50,6 +50,11 @@ class Login extends CI_Controller {
 			//获取QQ用户资料
 			$user = $this->qq_get_detail();
 			var_dump($user);
+			$user = json_decode($user);
+			$user_name = $user->nickname;
+			//添加用户
+			$wp_user = $this->u_model->save();
+			var_dump($wp_user);
 		}
 		//写入登录SESSION
 		exit;
@@ -133,6 +138,17 @@ class Login extends CI_Controller {
 			"&openid=" . $_SESSION["qq:openid"] . "&format=json";
 
 		$response = file_get_contents($url);
+		//"{ "ret": 0, "msg": "",
+		// "is_lost":0, "nickname": "misaka",
+		// "gender": "男", "province": "广东", "city": "深圳",
+		// "year": "1999",
+		// "figureurl": "http:\/\/qzapp.qlogo.cn\/qzapp\/101269058\/0A2FCA252EAD4567AF7831D25DBC8669\/30",
+		// "figureurl_1": "http:\/\/qzapp.qlogo.cn\/qzapp\/101269058\/0A2FCA252EAD4567AF7831D25DBC8669\/50",
+		// "figureurl_2": "http:\/\/qzapp.qlogo.cn\/qzapp\/101269058\/0A2FCA252EAD4567AF7831D25DBC8669\/100",
+		// "figureurl_qq_1": "http:\/\/q.qlogo.cn\/qqapp\/101269058\/0A2FCA252EAD4567AF7831D25DBC8669\/40",
+		// "figureurl_qq_2": "http:\/\/q.qlogo.cn\/qqapp\/101269058\/0A2FCA252EAD4567AF7831D25DBC8669\/100",
+		// "is_yellow_vip": "0", "vip": "0", "yellow_vip_level": "0",
+		// "level": "0", "is_yellow_year_vip": "0" } "
 		return $response;
 	}
 }

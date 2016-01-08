@@ -34,4 +34,25 @@ class User_Model extends CI_Model {
                 WHERE open.openid = '".$openid . "' AND open.type = ".$type;
         return $this->db->query($sql)->result();
     }
+
+    function save($openid,$username,$type) {
+        //构造数据
+        //开启事务
+        $this->db->trans_start();
+        $user = ['username'=>$username,
+            'create_time'=>time()];
+        $user = $this->db->insert(self::TABLE_USERS,$user);
+
+
+        if ($this->db->trans_status() === FALSE)
+        {
+            $this->db->trans_rollback();
+            return false;
+        }
+        else
+        {
+            $this->db->trans_commit();
+            return $user;
+        }
+    }
 }
