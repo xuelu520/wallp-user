@@ -52,13 +52,13 @@ class Login extends CI_Controller {
 			//添加用户
 			$wp_user_id = $this->u_model->save($openid,$user_name,USER_QQ);
 			if($wp_user_id) {
-				$wp_user = ['user_id'=>$wp_user_id,'user_name'=>$user_name];
+				$wp_user = json_decode(json_encode(['user_id'=>$wp_user_id,'user_name'=>$user_name]));
 			}
 		}
 		//写入登录SESSION
 		$_SESSION['user:id'] = $wp_user->user_id;
 		$_SESSION['user:name'] = $wp_user->user_name;
-		echo "<h1>登录完成，正在关闭...</h1><script>setTimeout(function(){window.close();},1000)</script>";
+//		echo "<h1>登录完成，正在关闭...</h1><script>setTimeout(function(){window.close();},1000)</script>";
 		exit;
 	}
 
