@@ -55,11 +55,10 @@ class Login extends CI_Controller {
 				$wp_user = ['user_id'=>$wp_user_id,'user_name'=>$user_name];
 			}
 		}
-		var_dump($wp_user);
 		//写入登录SESSION
-		$_SESSION['user:id'] = $wp_user['user_id'];
-		$_SESSION['user:name'] = $wp_user['user_name'];
-//		echo "<script>window.close();</script>";
+		$_SESSION['user:id'] = $wp_user->user_id;
+		$_SESSION['user:name'] = $wp_user->user_name;
+		echo "<h1>登录完成，正在关闭...</h1><script>setTimeout(function(){window.close();},1000)</script>";
 		exit;
 	}
 
