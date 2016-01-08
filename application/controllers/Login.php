@@ -132,8 +132,7 @@ class Login extends CI_Controller {
 			"access_token=&". $_SESSION["qq:access_token"] .
 			"openid=" . $_SESSION["qq:openid"] . "&format=json";
 
-		$client = new GuzzleHttp\Client();
-		$resp = $client->get($url);
-		return json_decode((string)$resp->getBody());
+		$response = file_get_contents($url);
+		return $response;
 	}
 }
