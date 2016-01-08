@@ -30,4 +30,11 @@ class Login extends CI_Controller {
 			. "&scope=".QQ_SCOPE;
 		header("Location:$login_url");exit;
 	}
+
+	/**
+	 * QQ登录回调地址
+	 */
+	public function qq() {
+		echo "<h1>这是QQ登录的回调页面</h1>";exit;
+	}
 }
