@@ -71,9 +71,6 @@ class Login extends CI_Controller {
 	 */
 	private function qq_callback()
 	{
-		//debug
-		//print_r($_REQUEST);
-		//print_r($_SESSION);
 		$state = $this->input->get('state',TRUE);
 		$code = $this->input->get('code',TRUE);
 		if($state == $_SESSION['login:qq:state']) //csrf
@@ -99,13 +96,8 @@ class Login extends CI_Controller {
 
 			$params = array();
 			parse_str($response, $params);
-
-			//debug
-//			print_r($params);
-
 			//set access token to session
 			$_SESSION["qq:access_token"] = $params["access_token"];
-
 		}
 		else
 		{
@@ -136,10 +128,6 @@ class Login extends CI_Controller {
 			echo "<h3>msg  :</h3>" . $user->error_description;
 			exit;
 		}
-//		echo "<br>";
-		//debug
-//		var_dump($user);
-
 		//set openid to session
 		$_SESSION["qq:openid"] = $user->openid;
 	}
