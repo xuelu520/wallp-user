@@ -6,6 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 
 use GuzzleHttp\Client;
+require_once APPPATH."core/WRedis.php";
 class Login extends CI_Controller {
 
 	/**
@@ -62,6 +63,8 @@ class Login extends CI_Controller {
 		//写入登录SESSION
 		$_SESSION['user:id'] = $wp_user->user_id;
 		$_SESSION['user:name'] = $wp_user->user_name;
+		//写入REDIS数据
+		$this->redis_login($wp_user->user_id, USER_QQ);
 		echo "<h1>登录完成^_^，正在关闭...</h1><script>setTimeout(function(){window.close();},1500)</script>";
 		exit;
 	}
@@ -162,5 +165,17 @@ class Login extends CI_Controller {
 	public function logout() {
 		session_destroy();
 		header('Location:/');exit;
+	}
+
+	/**
+	 * 记录登录redis数据
+	 * @param $uid
+	 * @param $user_type
+	 */
+	private function redis_login($uid,$user_type) {
+		$key = "user:login:".$uid.$user_type;
+		$value = "1";
+		$redis = new WRedis();
+		$redis->set($key, $value);
 	}
 }
