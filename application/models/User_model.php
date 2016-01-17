@@ -58,4 +58,15 @@ class User_Model extends CI_Model {
             return false;
         }
     }
+
+    function one_by_token($token) {
+        $this->db->where('token',$token);
+        $this->db->where('expire<=',time());
+        return $this->db->row();
+    }
+
+    function one_by_uid($uid) {
+        $this->db->where('id',$uid);
+        return $this->db->row();
+    }
 }

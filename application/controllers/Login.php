@@ -40,7 +40,32 @@ class Login extends CI_Controller {
 	public function qq() {
 		echo "<h1>QQ登录验证中...</h1>";
 		$this->qq_callback();
-		$this->qq_get_openid();
+		//token去查user_id
+		$this->load->model('User_model','user_model');
+		$user =$this->user_model->one_by_token($_SESSION['qq:access_token']);
+		if($user) {
+			//token 没有过期
+			$wp_user = $this->user_model->one_by_uid($user->id);
+			if(!$wp_user) {
+				goto no_exist_user;
+			}
+		} else {
+			//过期
+			$this->qq_get_openid();
+			$openid = $_SESSION["qq:openid"];
+			$wp_user = $this->user_model->open_user($openid,USER_QQ);
+			if($wp_user) {
+				$wp_user = $this->user_model->one_by_uid($wp_user->uid);
+
+			}else{
+				//更新user nickname pic
+				$qq_user = $this->qq_get_detail();
+				$user_name = $qq_user->nickname;
+				
+			}
+		}
+
+
 
 		$openid = $_SESSION["qq:openid"];
 
@@ -49,6 +74,7 @@ class Login extends CI_Controller {
 		$wp_user = $this->u_model->open_user($openid,USER_QQ);
 		//用户不存在
 		if(!$wp_user) {
+			no_exist_user:
 			//获取QQ用户资料
 			$qq_user = $this->qq_get_detail();
 			$user_name = $qq_user->nickname;
@@ -62,7 +88,8 @@ class Login extends CI_Controller {
 		}
 		//写入登录SESSION
 		$_SESSION['user:id'] = $wp_user->user_id;
-		$_SESSION['user:name'] = $wp_user->user_name;
+		$_SESSION['user:nickname'] = $wp_user->user_name;
+		$_SESSION['user:pic'] = $wp_user->user_name;
 		//写入REDIS数据
 		$this->redis_login($wp_user->user_id, USER_QQ);
 		echo "<h1>登录完成^_^，正在关闭...</h1><script>setTimeout(function(){window.close();},1500)</script>";
