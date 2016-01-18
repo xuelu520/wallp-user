@@ -61,7 +61,7 @@ class Login extends CI_Controller {
 				//更新user nickname pic
 				$qq_user = $this->qq_get_detail();
 				$user_name = $qq_user->nickname;
-				
+				$pic = $qq_user->pic;
 			}
 		}
 
