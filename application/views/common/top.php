@@ -49,6 +49,11 @@
                         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                     </a>
                 </li>
+                <li>
+                    <a href="http://www.housepig.cn:3000" title="吐槽不停歇">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true">吐槽不停歇</span>
+                    </a>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right ">
                 <?php if(isset($_SESSION['user:id'])): ?>
