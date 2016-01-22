@@ -19,6 +19,9 @@ class Login extends CI_Controller {
 			case 'qq':
 				$this->qq_login();
 				break;
+			case 'weibo':
+				$this->weibo_login();
+				break;
 		}
 	}
 
@@ -204,5 +207,12 @@ class Login extends CI_Controller {
 		$value = "1";
 		$redis = new WRedis();
 		$redis->set($key, $value);
+	}
+
+	/**
+	 * 微博登陆主流程
+	 */
+	private function weibo_login() {
+
 	}
 }
