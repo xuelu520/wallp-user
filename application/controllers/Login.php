@@ -215,4 +215,11 @@ class Login extends CI_Controller {
 	private function weibo_login() {
 
 	}
+
+	/**
+	 * 微博登陆主逻辑
+	 */
+	private function weibo() {
+
+	}
 }
