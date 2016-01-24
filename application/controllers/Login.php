@@ -222,4 +222,11 @@ class Login extends CI_Controller {
 	private function weibo() {
 
 	}
+
+	/**
+	 * 微博登陆回调方法
+	 */
+	private function weibo_callback() {
+
+	}
 }
