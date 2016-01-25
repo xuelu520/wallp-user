@@ -229,4 +229,11 @@ class Login extends CI_Controller {
 	private function weibo_callback() {
 
 	}
+
+	/**
+	 * 微博获取openid方法
+	 */
+	private function weibo_get_openid() {
+
+	}
 }
