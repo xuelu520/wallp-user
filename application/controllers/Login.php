@@ -236,4 +236,10 @@ class Login extends CI_Controller {
 	private function weibo_get_openid() {
 
 	}
+
+	/**
+	 * weibo 回调 获取用户信息
+	 * @return mixed
+	 */
+	private function weibo_get_detail() {
 }
