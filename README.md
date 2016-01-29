@@ -34,6 +34,7 @@
 * 改名 /application/config/config-sample.php => config.php,同时更改UPYUN相关配置
 * 更改 API接口URL
 * 修改database.php 为数据库的相关配置
+* redis.php修改为你的REDIS服务器IP
 * 数据库建库 wallp,导入 /sql/wallp.sql文件  
 
 
