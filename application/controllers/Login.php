@@ -6,7 +6,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 
 use GuzzleHttp\Client;
-require_once APPPATH."core/WRedis.php";
+//require_once APPPATH."core/WRedis.php";
+use core\WRedis;
 class Login extends CI_Controller {
 
 	/**

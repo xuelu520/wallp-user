@@ -5,6 +5,8 @@
  * Date: 2015/12/13
  * Time: 3:09
  */
+namespace core;
+
 use Predis\Client;
 class WRedis {
     protected static $redis;

@@ -59,6 +59,11 @@ class User_Model extends CI_Model {
         }
     }
 
+    /**
+     * 使用access_token 查询未过期的授权用户
+     * @param $token
+     * @return mixed
+     */
     function one_by_token($token) {
         $this->db->where('token',$token);
         $this->db->where('expire<=',time());
